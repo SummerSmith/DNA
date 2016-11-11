@@ -42,13 +42,22 @@ public class StringStrand implements IDnaStrand {
 		boolean first = true;
 		IDnaStrand ret = null;
 
+		//pos = search.indexof
+		// while (pos >= 0)
+			// ...
+			// pos = search.indexof
+		
+		// runs b times, where b is the number of times enzyme appears
 		while ((pos = search.indexOf(enzyme, pos)) >= 0) {
 			if (first) {
 				ret = getInstance(search.substring(start, pos));
 				first = false;
 			} else {
+				//takes s time for stringbuilder
+				// takes sb time for string (current value of b)
+				// constant time for link
+				//where s is the length of the strand
 				ret.append(search.substring(start, pos));
-
 			}
 			start = pos + enzyme.length();
 			ret.append(splicee);
